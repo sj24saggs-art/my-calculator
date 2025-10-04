@@ -4,7 +4,7 @@ Example: python src/cli.py add 5 3
 """
 import sys
 import click
-from src.calculator import add, subtract
+from src.calculator import add, subtract, multiply, divide
 @click.command()
 @click.argument('operation')
 @click.argument('num1', type=float)
@@ -16,6 +16,10 @@ def calculate(operation, num1, num2=None):
             result = add(num1, num2)
         elif operation == 'subtract':
             result = subtract(num1, num2)
+        elif operation == "multiply":
+            result = multiply(num1, num2)
+        elif operation == "divide":
+            result = divide(num1, num2)
         else:
             click.echo(f"Unknown operation: {operation}")
             sys.exit(1)
