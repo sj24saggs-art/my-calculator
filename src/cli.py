@@ -4,7 +4,7 @@ Example: python src/cli.py add 5 3
 """
 import sys
 import click
-from calculator import add, subtract, multiply, divide, power, square_root
+from src.calculator import add, subtract
 @click.command()
 @click.argument('operation')
 @click.argument('num1', type=float)
@@ -29,9 +29,9 @@ def calculate(operation, num1, num2=None):
     except ValueError as e:
         click.echo(f"Error: {e}")
         sys.exit(1)
-    except Exception as e:
+    except Exception as e: # pylint: disable=broad-exception-caught
         click.echo(f"Unexpected error: {e}")
         sys.exit(1)
 
-if __name__ == '__main__':
-    calculate()
+if __name__ == "__main__":
+    calculate() # pylint: disable=no-value-for-parameter
