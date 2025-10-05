@@ -22,7 +22,7 @@ def calculate(operation, num1, num2=None):
             result = divide(num1, num2)
         elif operation == "power":
             result = power(num1, num2)
-        elif operation == "square_root":
+        elif operation in ("square_root", "sqrt"):
             result = square_root(num1)
         else:
             click.echo(f"Unknown operation: {operation}")
